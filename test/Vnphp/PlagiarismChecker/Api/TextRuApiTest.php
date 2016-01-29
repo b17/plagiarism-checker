@@ -39,14 +39,16 @@ class TextRuApiTest extends PHPUnit_Framework_TestCase
     public function testResponse()
     {
         $apiResponse = $this->getResponseMock([
-            'unique' => 80,
-            'urls'   => [
-                [
-                    'url'     => 'https://google.com.ua',
-                    'plagiat' => 100,
-                    'words'   => [],
+            'result_json' => json_encode([
+                'unique' => 80,
+                'urls'   => [
+                    [
+                        'url'     => 'https://google.com.ua',
+                        'plagiat' => 100,
+                        'words'   => [],
+                    ],
                 ],
-            ],
+            ]),
         ]);
         $this->browser->expects($this->once())
             ->method('post')

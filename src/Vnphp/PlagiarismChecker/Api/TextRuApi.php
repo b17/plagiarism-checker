@@ -46,10 +46,10 @@ class TextRuApi implements ApiInterface
             'uid' => $id,
         ];
 
-        $data = $this->call($args);
+        $data = json_decode($this->call($args)['result_json'], true);
 
         $urls = array_map(function ($url) {
-            return new Url($url['url'], $url['plagiat'], $url['words']);
+            return new Url($url['url'], $url['plagiat']);
         }, $data['urls']);
 
         $response = new Response($data['unique'], $urls);

@@ -16,23 +16,15 @@ class Url
     private $plagiat;
 
     /**
-     * @var array
-     */
-    private $words;
-
-    /**
      * Url constructor.
      * @param string $url
      * @param float $plagiat
-     * @param array $words
      */
-    public function __construct($url, $plagiat, array $words = [])
+    public function __construct($url, $plagiat)
     {
         $this->url = $url;
         $this->plagiat = $plagiat;
-        $this->words = $words;
     }
-
 
     /**
      * @return string
@@ -49,14 +41,4 @@ class Url
     {
         return $this->plagiat;
     }
-
-    /**
-     * @return array
-     */
-    public function getWords()
-    {
-        return $this->words;
-    }
-
-
 }
